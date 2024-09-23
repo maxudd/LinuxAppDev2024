@@ -4,6 +4,7 @@ SRC=Show.c
 EXE=Show
 CC=cc
 LDLIBS=-lncurses
+CFLAGS=-Wall -Wextra
 
 all: Show
 
