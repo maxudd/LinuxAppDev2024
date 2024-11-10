@@ -4,14 +4,19 @@ bin_PROGRAMS=rhasher
 
 rhasher_SOURCES=rhasher.c
 
-TESTS=md5.sh
+TESTS=md5.sh sha1.sh
 
 md5.sh:
-	echo 'test "`./rhasher <<<'md5 "lala"' 2>&1 | head -n 1`" = "> LjgXKT/CddvudL1xzm6wVg=="' > $@
+	echo 'Md5 rhasher.c' | ./rhasher | cut -d ' ' -f 2 > md5.out
+	md5sum rhasher.c | cut -d ' ' -f 1 > md5.true 
+	echo 'test "`cat md5.out`" = "`cat md5.true`"' > $@
 	chmod +x $@
 
-# distclean:
-# 	rm -rf .deps *.cache *.log config.* config.* configure configure~ rhasher *.o *.m4 install-sh Makefile Makefile.in missing stamp-h1 compile depcomp test-driver *.log src/.deps src/.dirstamp src/rhasher.o
+sha1.sh:
+	echo 'Sha1 rhasher.c' | ./rhasher | cut -d ' ' -f 2 > sha1.out
+	sha1sum rhasher.c | cut -d ' ' -f 1 > sha1.true 
+	echo 'test "`cat sha1.out`" = "`cat sha1.true`"' > $@
+	chmod +x $@
 
 gitclean:
 	git clean -df
