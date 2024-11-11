@@ -1,0 +1,1 @@
+bin_PROGRAMS=num_guess
