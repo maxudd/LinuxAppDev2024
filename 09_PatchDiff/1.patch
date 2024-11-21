@@ -1,0 +1,11 @@
+--- maze0.c	2024-11-21 20:33:17.898307355 +0300
++++ maze1.c	2024-11-21 20:50:28.597517908 +0300
+@@ -3,7 +3,7 @@
+ 
+ 
+ int main(int argc, char *argv[]) {
+-    int maze_size = 6;
++    int maze_size = atoi(argv[1]);
+     int arr_size = (maze_size * 2) + 1;
+     
+     char **maze = calloc(sizeof(char *), arr_size);
