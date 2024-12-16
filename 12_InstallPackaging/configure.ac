@@ -1,0 +1,35 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AC_PREREQ([2.71])
+AC_INIT([num_guess], [2.28], [a@a.com])
+AM_INIT_AUTOMAKE([foreign])
+DX_INIT_DOXYGEN([num_guess])
+# AM_GNU_GETTEXT([external])
+# AM_GNU_GETTEXT_REQUIRE_VERSION(0.21)
+# GETTEXT_PACKAGE=num_guess
+# AC_SUBST(GETTEXT_PACKAGE)
+# ALL_LINGUAS="ru"
+
+AC_CONFIG_SRCDIR([num_guess.c])
+AC_CONFIG_HEADERS([config.h])
+
+# Checks for programs.
+AC_PROG_CC
+
+# Joint pkgconfig library/include tests
+PKG_CHECK_MODULES([CHECK],[check])
+
+# Checks for libraries.
+
+# Checks for header files.
+AC_CHECK_HEADERS([libintl.h locale.h stdlib.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_TYPE_SIZE_T
+
+# Checks for library functions.
+AC_CHECK_FUNCS([setlocale])
+
+AC_CONFIG_FILES([Makefile Doxyfile])
+AC_OUTPUT
